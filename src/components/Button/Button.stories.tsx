@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { Button } from "./Button";
@@ -10,7 +10,10 @@ const ButtonMeta: Meta<typeof Button> = {
     onPress: { action: "Pressed the button" },
   },
   args: {
-    text: "Hello world",
+    title: "Hello world",
+    onPress: () => {
+      Alert.alert("I am clicked");
+    },
   },
   decorators: [
     (Story) => (
@@ -23,10 +26,14 @@ const ButtonMeta: Meta<typeof Button> = {
 
 export default ButtonMeta;
 
-export const Basic: StoryObj<typeof Button> = {};
+export const ExampleOne: StoryObj<typeof Button> = {};
 
-export const AnotherExample: StoryObj<typeof Button> = {
+export const ExampleTwo: StoryObj<typeof Button> = {
   args: {
-    text: "Another example",
+    title: "Another example",
+    containerStyle: { borderRadius: 0, backgroundColor: "blue" },
+    onPress: () => {
+      Alert.alert("I am clicked");
+    },
   },
 };
