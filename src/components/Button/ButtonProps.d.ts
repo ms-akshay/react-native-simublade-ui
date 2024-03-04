@@ -1,4 +1,5 @@
 export type ButtonProps = {
   onPress: () => void;
-  text: string;
+  containerStyle: ViewStyle;
+  title: string;
 };
