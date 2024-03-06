@@ -40,3 +40,5 @@ yarn ios
 
 1. If you want to `enable/disable` storybook make `STORYBOOK_ENABLED = true`/`STORYBOOK_ENABLED = false` or vice-versa in .env file
 2. Then, clean build folder and rebuild the app
+
+## This package is inspired by react native paper
