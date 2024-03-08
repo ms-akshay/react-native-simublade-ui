@@ -3,7 +3,7 @@ import { TouchableOpacity, Image } from "react-native";
 import { IconButtonProps } from "./IconButtonProps";
 import { styles } from "./styles";
 
-export const IconButton = ({
+const IconButton = ({
   onPress,
   containerStyle,
   source,
@@ -31,3 +31,5 @@ export const IconButton = ({
     </TouchableOpacity>
   );
 };
+
+export default IconButton;

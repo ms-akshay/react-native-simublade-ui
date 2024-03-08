@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from "react-native";
 import { styles } from "./styles";
 import { ButtonProps } from "./ButtonProps";
 
-export const Button = ({ onPress, title, containerStyle }: ButtonProps) => {
+const Button = ({ onPress, title, containerStyle }: ButtonProps) => {
   return (
     <TouchableOpacity
       style={[styles.container, containerStyle]}
@@ -15,3 +15,5 @@ export const Button = ({ onPress, title, containerStyle }: ButtonProps) => {
     </TouchableOpacity>
   );
 };
+
+export default Button;
