@@ -1,6 +1,7 @@
 import { View } from "react-native";
-import Typography from "./Typography";
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import Typography from "./Typography";
 
 const TypographyMeta: Meta<typeof Typography> = {
   title: "Typography",
