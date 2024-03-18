@@ -1,5 +1,11 @@
-import { View, Animated, Easing } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
+import { View } from "react-native";
+import React, { useEffect } from "react";
+import Animated, {
+  Easing,
+  useSharedValue,
+  withTiming,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 import { ProgressBarProps } from "./ProgressBarProps";
 
 const ProgressBar = (props: ProgressBarProps) => {
@@ -10,20 +16,20 @@ const ProgressBar = (props: ProgressBarProps) => {
     borderRadius = 50,
     height = 15,
   } = props;
-  const currentProgress = useRef(new Animated.Value(0)).current;
-  const [progressBarWidth, setProgressBarWidth] = useState(
-    new Animated.Value(0)
-  );
+  const currentProgress = useSharedValue(0);
 
-  // Function for starting the animation
+  // For starting the animation
   const startAnimation = () => {
-    Animated.timing(currentProgress, {
-      toValue: progressValue * 100,
+    currentProgress.value = withTiming(progressValue * 100, {
       duration: 1000,
       easing: Easing.elastic(1.2),
-      useNativeDriver: false,
-    }).start();
+    });
   };
+
+  // For getting the animated styles
+  const animatedStyles = useAnimatedStyle(() => ({
+    width: `${currentProgress.value}%`,
+  }));
 
   useEffect(() => {
     if (progressValue >= 0 && progressValue <= 1) {
@@ -32,9 +38,7 @@ const ProgressBar = (props: ProgressBarProps) => {
       throw new Error("progressValue must be between 0 and 1");
     }
 
-    return () => {
-      currentProgress.resetAnimation();
-    };
+    return () => {};
   }, [progressValue]);
 
   return (
@@ -44,22 +48,18 @@ const ProgressBar = (props: ProgressBarProps) => {
         width: "100%",
         backgroundColor: progressBarBackgroundColor,
         borderRadius,
-      }}
-      onLayout={(event) => {
-        setProgressBarWidth(new Animated.Value(event.nativeEvent.layout.width));
+        overflow: "hidden",
       }}
     >
       <Animated.View
-        style={{
-          flex: 1,
-          width: Animated.divide(
-            Animated.multiply(currentProgress, progressBarWidth),
-            100
-          ),
-          height,
-          backgroundColor: progressBarColor,
-          borderRadius,
-        }}
+        style={[
+          {
+            height,
+            backgroundColor: progressBarColor,
+            borderRadius,
+          },
+          animatedStyles,
+        ]}
       />
     </View>
   );

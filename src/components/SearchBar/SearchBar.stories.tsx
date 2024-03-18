@@ -2,6 +2,7 @@ import { View } from "react-native";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import SearchBar from "./SearchBar";
+import { Image } from "../../utils/images";
 
 const SearchBarMeta: Meta<typeof SearchBar> = {
   title: "Search Bar",
@@ -49,12 +50,8 @@ export const SearchBarWithIcons: StoryObj<typeof SearchBar> = {
   },
   args: {
     placeholder: "Search...",
-    leftIcon: {
-      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlWrXV7DHI8CTZDOZC-XwJD9TKM3QYfkShq61WV-tMa2tKcgRje9W8MgsplGSob5o4Q4w&usqp=CAU",
-    },
-    rightIcon: {
-      uri: "https://cdn.iconscout.com/icon/free/png-256/free-clear-1781787-1518214.png?f=webp",
-    },
+    leftIcon: Image.search_icon,
+    rightIcon: Image.cross_icon_circular,
     enabledAutoCorrect: true,
     searchContainerStyle: {
       borderRadius: 16,
@@ -71,9 +68,7 @@ export const SearchBarWithLeftIcon: StoryObj<typeof SearchBar> = {
   args: {
     placeholder: "Veg burgers near me",
     placeholderTextColor: "rgba(0,0,0,0.6)",
-    leftIcon: {
-      uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlWrXV7DHI8CTZDOZC-XwJD9TKM3QYfkShq61WV-tMa2tKcgRje9W8MgsplGSob5o4Q4w&usqp=CAU",
-    },
+    leftIcon: Image.search_icon,
     enabledAutoCorrect: false,
   },
 };
@@ -85,9 +80,7 @@ export const SearchBarWithRightIcon: StoryObj<typeof SearchBar> = {
   args: {
     placeholder: "Search classes near you",
     placeholderTextColor: "rgba(0,0,0,0.6)",
-    rightIcon: {
-      uri: "https://cdn.iconscout.com/icon/free/png-256/free-clear-1781787-1518214.png?f=webp",
-    },
+    rightIcon: Image.cross_icon_circular,
     enabledAutoCorrect: false,
   },
 };
