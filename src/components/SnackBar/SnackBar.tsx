@@ -42,15 +42,21 @@ const Snackbar = ({
         { backgroundColor: backgroundColor },
       ]}
     >
-      <View style={[styles.msgTypeImageContainer,
-      { backgroundColor: IconbackgroundColor },]}>
-        <Image source={source}
+      <View
+        style={[
+          styles.msgTypeImageContainer,
+          { backgroundColor: IconbackgroundColor },
+        ]}
+      >
+        <Image
+          source={source}
           style={{
             width: size,
             height: size,
             tintColor: color,
           }}
-          resizeMode="contain" />
+          resizeMode="contain"
+        />
       </View>
       <View style={[styles.textContainer, textContainer]}>
         <Text style={[styles.headingText, headingText, { color: textColor }]}>
@@ -64,20 +70,23 @@ const Snackbar = ({
         <TouchableOpacity
           style={styles.crossIconContainer}
           hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
-          onPress={onActionPress}>
-          <Image source={{uri:'https://cdn-icons-png.flaticon.com/128/1828/1828665.png'}}
+          onPress={onActionPress}
+        >
+          <Image
+            source={{
+              uri: "https://cdn-icons-png.flaticon.com/128/1828/1828665.png",
+            }}
             style={{
               width: 12,
               height: 12,
               tintColor: color,
             }}
-            resizeMode="contain" />
+            resizeMode="contain"
+          />
         </TouchableOpacity>
       )}
     </View>
   ) : null;
 };
-
-
 
 export default Snackbar;
