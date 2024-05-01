@@ -1,5 +1,5 @@
 {
-  "name": "react_native_simublade_ui",
+  "name": "@simublade/react-native-simublade-ui-lib",
   "version": "1.0.0",
   "private": false,
   "scripts": {
