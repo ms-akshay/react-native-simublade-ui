@@ -1,6 +1,6 @@
 {
   "name": "@simublade-technology/react-native-ui-lib",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": false,
   "scripts": {
     "android": "react-native run-android",
