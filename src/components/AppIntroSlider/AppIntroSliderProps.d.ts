@@ -14,7 +14,7 @@ import { ImageSourcePropType, ImageStyle, TextStyle, ViewStyle } from "react-nat
  * @param paginationDots
  * @param noTitle
  * @param scrollEnabled
- * 
+ * @param delay
  *
  * 
  */
@@ -32,5 +32,6 @@ export type AppIntroSliderProps = {
     paginationDots?: ViewStyle;
     noTitle?: boolean;
     scrollEnabled?: boolean;
+    delay?: number;
 
 };
