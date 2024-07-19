@@ -16,6 +16,7 @@ const AppIntroSlider = ({
     paginationDots,
     noTitle,
     scrollEnabled,
+    delay = 300,
 
 }: AppIntroSliderProps) => {
     const [currentPage, setCurrentPage] = useState(0);
@@ -26,14 +27,22 @@ const AppIntroSlider = ({
     const handleScroll = (event) => {
         const { x } = event.nativeEvent.contentOffset;
         const pageIndex = Math.floor(x / width);
-        setCurrentPage(pageIndex);
+            setCurrentPage(pageIndex);
     };
 
     const scrollToNextPage = () => {
         if (currentPage < sliderData.length - 1 && scrollViewRef.current) {
             const nextPage = currentPage + 1;
-            scrollViewRef.current.scrollTo({ x: nextPage * width, animated: true });
-            setCurrentPage(nextPage);
+            
+            // delay in scroll
+            setTimeout(() => {
+                scrollViewRef.current.scrollTo({ x: nextPage * width, animated: true });
+            }, delay)
+
+            // Delay the state update slightly
+            setTimeout(() => {
+                setCurrentPage(nextPage);
+            }, delay + 300); // Adjust the delay as needed
         }
     };
 
