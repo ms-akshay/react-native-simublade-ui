@@ -17,7 +17,7 @@ const AppIntroSlider = ({
     noTitle,
     scrollEnabled,
     delay = 300,
-
+    onLastSlideButtonPress
 }: AppIntroSliderProps) => {
     const [currentPage, setCurrentPage] = useState(0);
     const { width, height } = Dimensions.get('window');
@@ -28,6 +28,9 @@ const AppIntroSlider = ({
         const { x } = event.nativeEvent.contentOffset;
         const pageIndex = Math.floor(x / width);
             setCurrentPage(pageIndex);
+        if(currentPage === sliderData.length - 1) {
+            onLastSlideButtonPress();
+        }
     };
 
     const scrollToNextPage = () => {
@@ -43,6 +46,9 @@ const AppIntroSlider = ({
             setTimeout(() => {
                 setCurrentPage(nextPage);
             }, delay + 300); // Adjust the delay as needed
+        }
+        else if(currentPage === sliderData.length-1) {
+            onLastSlideButtonPress();
         }
     };
 

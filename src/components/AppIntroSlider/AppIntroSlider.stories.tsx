@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import AppIntroSlider from "./AppIntroSlider";
@@ -8,6 +8,7 @@ const AppIntroSliderMeta: Meta<typeof AppIntroSlider> = {
     component: AppIntroSlider,
     argTypes: {
         // handleValueChange: { action: "Pressed the AppIntroSlider" },
+        onLastSlideButtonPress: { action: "Pressed the AppIntroSlider" },
     },
     args: {},
     decorators: [
@@ -60,7 +61,10 @@ export const AppIntroSliderTitleOnTop: StoryObj<typeof AppIntroSlider> = {
         headerStyle: { color: '#278194' },
         descriptionStyle: { color: '#278194' },
         buttonStyle: { backgroundColor: '#278194' },
-        scrollEnabled: true
+        scrollEnabled: true,
+        onLastSlideButtonPress: () => {
+            Alert.alert("I am clicked");
+        },
     },
 };
 
@@ -103,7 +107,10 @@ export const AppIntroSliderTitleOnBottom: StoryObj<typeof AppIntroSlider> = {
         headerStyle: { color: '#278194' },
         descriptionStyle: { color: '#278194' },
         buttonStyle: { backgroundColor: '#278194' },
-        scrollEnabled: true
+        scrollEnabled: true,
+        onLastSlideButtonPress: () => {
+            Alert.alert("I am clicked");
+        },
     },
 };
 
@@ -146,7 +153,10 @@ export const AppIntroSliderWithoutButton: StoryObj<typeof AppIntroSlider> = {
         headerStyle: { color: '#278194' },
         descriptionStyle: { color: '#278194' },
         buttonStyle: { backgroundColor: '#278194' },
-        scrollEnabled: true
+        scrollEnabled: true,
+        onLastSlideButtonPress: () => {
+            Alert.alert("I am clicked");
+        },
     },
 };
 
@@ -189,6 +199,9 @@ export const AppIntroSliderWithoutSlider: StoryObj<typeof AppIntroSlider> = {
         headerStyle: { color: '#278194' },
         descriptionStyle: { color: '#278194' },
         buttonStyle: { backgroundColor: '#278194' },
-        scrollEnabled: false
+        scrollEnabled: false,
+        onLastSlideButtonPress: () => {
+            Alert.alert("I am clicked");
+        },
     },
 };

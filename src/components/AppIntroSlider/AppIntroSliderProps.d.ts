@@ -15,13 +15,14 @@ import { ImageSourcePropType, ImageStyle, TextStyle, ViewStyle } from "react-nat
  * @param noTitle
  * @param scrollEnabled
  * @param delay
- *
+ * @param onLastSlideButtonPress
  * 
  */
 
 
 export type AppIntroSliderProps = {
     sliderData: Array<{ id: number; image: ImageSourcePropType, title: string, description: string }>;
+    onLastSlideButtonPress: () => void;
     containerStyle?: ViewStyle;
     bgImageStyle?: ImageStyle;
     headerStyle?: TextStyle;
